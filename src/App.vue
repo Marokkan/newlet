@@ -1,30 +1,64 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div class="left">
+      <img src="./assets/webign.png" class="logo" alt="LOGO">
+    </div>
+    <div class="right">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
   </nav>
   <router-view/>
 </template>
 
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+ul,h1,h2,h3,a{
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  list-style: none;
 }
 
-nav {
-  padding: 30px;
+body{
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 10%;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+
+
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+img.logo{
+  width: 70px;
 }
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav li {
+  font-size: 23px;
+  color: #898989;
+  cursor: pointer;
+}
+
+nav li:hover{
+  color: #20969B;
+}
+
+
 </style>
