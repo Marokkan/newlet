@@ -13,6 +13,7 @@
       <div class="right-main">
         <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?size=626&ext=jpg&ga=GA1.2.790635230.1663525066" alt="">
       </div>
+      <button @click="Cli">Click</button>
     </main>
   </div>
 </template>
@@ -20,6 +21,7 @@
 <script>
 import {ref} from "vue"
 import {AddMail} from "../firestore"
+
 
 
 export default {
@@ -35,9 +37,8 @@ export default {
         mail.value = ""
       }
 
+
     }
-
-
 
 
 
@@ -47,6 +48,13 @@ export default {
     }
 
   },
+  methods:{
+    Cli(){
+      
+
+    }
+
+  }
 
 
 
