@@ -5,8 +5,8 @@
     </div>
     <div class="right">
       <ul>
-        <li>Home</li>
-        <li>About</li>
+        <router-link to="/"><li>Home</li></router-link>
+        <router-link to="/about"><li>About</li></router-link>
         <li>Contact</li>
       </ul>
     </div>

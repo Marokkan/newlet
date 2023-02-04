@@ -13,7 +13,6 @@
       <div class="right-main">
         <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?size=626&ext=jpg&ga=GA1.2.790635230.1663525066" alt="">
       </div>
-      <button @click="Cli">Click</button>
     </main>
   </div>
 </template>
@@ -21,20 +20,27 @@
 <script>
 import {ref} from "vue"
 import {AddMail} from "../firestore"
-
+import {SendEmail} from "../service/service"
+import axios from "axios"
 
 
 export default {
   setup(){
+
+
+    fetch("/.netlify/functions/products").then(res => res.json()).then(res => console.log(res))
+
+
+
     
     const mail = ref("")
 
     const AddMailDB = ()=>{
       //
       if(mail.value){
-        console.log(mail.value);
-        AddMail({mail:mail.value}).then(res => console.log(res))
+        AddMail({mail:mail.value}).then(data => console.log(data))
         mail.value = ""
+        
       }
 
 
@@ -48,13 +54,10 @@ export default {
     }
 
   },
-  methods:{
-    Cli(){
-      
 
-    }
+  
 
-  }
+  
 
 
 

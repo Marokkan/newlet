@@ -1,29 +1,59 @@
+
+
+<!--       
+
 <template>
-  <form ref="form" @submit.prevent="sendEmail">
-    <label>Name</label>
-    <input type="text" name="user_name">
-    <label>Email</label>
-    <input type="email" name="user_email">
-    <label>Message</label>
-    <textarea name="message"></textarea>
-    <input type="submit" value="Send">
-  </form>
+  <div class="app">
+    <h2>SEND EMAIL TO ALL CONTACT </h2>
+    <button @click="SendAll">Send emails</button>
+    {{data}}
+  </div>
 </template>
 
+
+
+
 <script>
-import emailjs from '@emailjs/browser';
+import { SendEmail } from '../service/service'
+import {LoadMail} from "../firestore"
+import { onBeforeMount, ref } from 'vue'
 
 export default {
-  methods: {
-    sendEmail() {
-      emailjs.sendForm('service_wxyk345', 'd-fd738d3ae31340b399f7de2b1f2b5982', this.$refs.form, 'FGX5MQZSqORBw-S9f')
-        .then((result) => {
-            console.log('SUCCESS!', result.text);
-        }, (error) => {
-            console.log('FAILED...', error.text);
-        });
+  setup(){
+    const data = ref([])
+
+    const SendAll = ()=>{
+      setTimeout(() => {
+        LoadMail().then(res => {
+          res.forEach(res => {
+            SendEmail({email:"marrokkan6@gmail.com"})
+          })
+        })
+      }, 1000);
+
+    }
+
+
+
+    return{
+      data,
+      SendAll
+
     }
   }
 }
 </script>
+
+
+
+<style scoped>
+
+
+
+
+</style>
+
+-->
+
+
 

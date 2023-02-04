@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import firebase from "firebase/compat/app";
 import { getFirestore } from "firebase/firestore";
 import {ref} from "vue"
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, getDocs } from "firebase/firestore"; 
 
 
 
@@ -62,17 +62,12 @@ export const Upload = (id,mail)=>{
 }
 
 
-export const LoadMail = ()=>{
-    const mail = ref()
-    const SnapShotMail = MailCollection.onSnapshot(snapshot => {
-        mail.value = snapshot.docs.map(doc => ({id: doc.id, ...doc.data() })) 
-    })
+export const LoadMail = async()=>{
+    const snapshot = ref()
+    const querySnapshot = await getDocs(collection(db, "mail"));
+    
 
-
-    return {
-        SnapShotMail
-    }
-
+    return querySnapshot
 
     /*
     const close =  ProductCollection.onSnapshot(snapshot => {
